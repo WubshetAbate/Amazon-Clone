@@ -1,0 +1,134 @@
+*{
+  margin: 0%;
+  padding: 0%;
+}
+body{
+  font-family: Arial, sans-serif;
+}
+.header {
+  background-color: #131921;
+  color: white;
+  padding: 10px;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo {
+  width: 100px;
+  object-fit: contain;
+}
+
+.logoLink {
+  display: flex;
+  align-items: center;
+}
+
+.delivery {
+  font-size: 12px;
+  display: flex;
+  gap: 9px;
+  /* flex-direction: column; */
+  text-align: left;
+}
+
+.delivery p {
+  margin: 0;
+}
+.icon {
+  font-size: 1.3rem; /* adjust icon size */
+}
+
+.delivery span {
+  font-weight: bold;
+}
+
+.search {
+  display: flex;
+  flex: 1;
+  margin: 0 20px;
+}
+
+.search select {
+  padding: 5px;
+}
+
+.search input {
+  flex: 1;
+  padding: 5px;
+  border: none;
+}
+
+.search button {
+  background: #febd69;
+  border: none;
+  padding: 5px 12px;
+  cursor: pointer;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* clickable anchor links */
+a {
+  text-decoration: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  padding: 5px 8px;
+  border: 1px solid transparent; /* invisible by default */
+  border-radius: 2px;
+  transition: border 0.2s ease, background-color 0.2s ease;
+}
+
+a:hover {
+  border: 1px solid white;
+  background-color: #232f3e; /* darker gray hover like Amazon */
+  color: white;
+}
+
+.language {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.flag {
+  width: 20px;
+  height: auto;
+}
+
+.link {
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.link p {
+  margin: 0;
+}
+
+.link span {
+  font-weight: bold;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
