@@ -1,6 +1,7 @@
 import React from "react";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
+import { Link } from "react-router-dom"; // ✅ import Link
 import styles from "./Header.module.css";
 
 function Header() {
@@ -9,21 +10,21 @@ function Header() {
       <section className={styles.container}>
         {/* Left: Logo + Delivery */}
         <div className={styles.left}>
-          <a href="/" className={styles.logoLink}>
+          <Link to="/" className={styles.logoLink}>
             <img
               src="../../../public/Amazon-Logo-White-PNG.png"
               alt="amazon.com"
               className={styles.logo}
             />
-          </a>
+          </Link>
 
-          <a href="/" className={styles.delivery}>
+          <Link to="/" className={styles.delivery}>
             <GoLocation className={styles.icon} />
             <div>
               <p>Deliver to</p>
               <span>Ethiopia</span>
             </div>
-          </a>
+          </Link>
         </div>
 
         {/* Middle: Search */}
@@ -39,8 +40,8 @@ function Header() {
 
         {/* Right: Links */}
         <div className={styles.right}>
-          {/* Language */}
-          <a href="/" className={styles.language}>
+          {/* Language (not a route, stays as is) */}
+          <div className={styles.language}>
             <img
               src="https://flagcdn.com/w20/us.png"
               alt="US Flag"
@@ -49,24 +50,24 @@ function Header() {
             <select>
               <option>EN</option>
             </select>
-          </a>
+          </div>
 
-          {/* Account & Lists */}
-          <a href="/" className={styles.link}>
+          {/* Account & Lists -> /auth */}
+          <Link to="/auth" className={styles.link}>
             <p>Sign in</p>
             <span>Account & Lists</span>
-          </a>
+          </Link>
 
-          {/* Returns & Orders */}
-          <a href="/" className={styles.link}>
+          {/* Returns & Orders -> /orders */}
+          <Link to="/orders" className={styles.link}>
             <p>Returns</p>
             <span>& Orders</span>
-          </a>
+          </Link>
 
-          {/* Cart */}
-          <a href="/" className={styles.cart}>
+          {/* Cart -> /cart */}
+          <Link to="/cart" className={styles.cart}>
             <FaShoppingCart className={styles.icon} /> <span>Cart</span>
-          </a>
+          </Link>
         </div>
       </section>
     </header>
