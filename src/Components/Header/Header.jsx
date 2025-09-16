@@ -1,10 +1,16 @@
 import React from "react";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import { GoLocation } from "react-icons/go";
-import { Link } from "react-router-dom"; // ✅ import Link
+import { Link } from "react-router-dom";
 import styles from "./Header.module.css";
+import { useCart } from "../../Components/Product/CartContext"; // Adjust path as needed
 
 function Header() {
+  const { cartItems } = useCart();
+
+  // Calculate total quantity of all items in cart
+  const cartCount = cartItems.reduce((total, item) => total + item.quantity, 0);
+
   return (
     <header className={styles.header}>
       <section className={styles.container}>
@@ -40,7 +46,7 @@ function Header() {
 
         {/* Right: Links */}
         <div className={styles.right}>
-          {/* Language (not a route, stays as is) */}
+          {/* Language */}
           <div className={styles.language}>
             <img
               src="https://flagcdn.com/w20/us.png"
@@ -52,21 +58,25 @@ function Header() {
             </select>
           </div>
 
-          {/* Account & Lists -> /auth */}
+          {/* Account & Lists */}
           <Link to="/auth" className={styles.link}>
             <p>Sign in</p>
             <span>Account & Lists</span>
           </Link>
 
-          {/* Returns & Orders -> /orders */}
+          {/* Returns & Orders */}
           <Link to="/orders" className={styles.link}>
             <p>Returns</p>
             <span>& Orders</span>
           </Link>
 
-          {/* Cart -> /cart */}
+          {/* Cart with count */}
           <Link to="/cart" className={styles.cart}>
-            <FaShoppingCart className={styles.icon} /> <span>Cart</span>
+            <FaShoppingCart className={styles.icon} />
+            <span>Cart</span>
+            {cartCount > 0 && (
+              <span className={styles.cartCount}>{cartCount}</span>
+            )}
           </Link>
         </div>
       </section>

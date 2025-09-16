@@ -24,7 +24,7 @@
 
 .cartItem {
   display: flex;
-  align-items: flex-start;
+  align-items: center; /* center items vertically */
   gap: 16px;
   padding: 12px;
   border: 1px solid #ddd;
@@ -33,13 +33,22 @@
 }
 
 .cartItem img {
-  width: 100px;
-  height: 100px;
+  width: 150px;      /* fixed width */
+  max-height: 150px; /* fixed max height */
   object-fit: contain;
+  border-radius: 6px;
 }
 
 .info {
   flex: 1;
+}
+
+.info h3 {
+  margin: 0 0 8px 0;
+}
+
+.info p {
+  margin: 4px 0;
 }
 
 .removeBtn {
@@ -50,6 +59,7 @@
   border-radius: 6px;
   cursor: pointer;
   font-weight: 600;
+  transition: background 0.3s;
 }
 
 .removeBtn:hover {

@@ -4,12 +4,11 @@ import LowerHeader from "../Header/LowerHeader";
 
 function LayOut({ children }) {
   return (
-    <div>
+    <div className="Layout">
       <Header />
       <LowerHeader />
       {children}
     </div>
   );
 }
-
 export default LayOut;

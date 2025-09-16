@@ -3,9 +3,16 @@ import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 import styles from "./ProductCard.module.css";
+import { useCart } from "./CartContext"; // Import Cart Context hook
 
 function ProductCard({ product }) {
   const { image, title, id, rating, price } = product;
+  const { addToCart } = useCart(); 
+//  console.log("ProductCard rendered:", product);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
 
   return (
     <div className={styles.productCard}>
@@ -23,7 +30,9 @@ function ProductCard({ product }) {
         <div className={styles.price}>
           <CurrencyFormat amount={price} />
         </div>
-        <button className={styles.addToCart}>Add to Cart</button>
+        <button className={styles.addToCart} onClick={handleAddToCart}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );

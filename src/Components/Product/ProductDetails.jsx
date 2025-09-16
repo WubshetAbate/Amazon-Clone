@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import { useCart } from "./CartContext"; // Import Cart context
 import Rating from "@mui/material/Rating";
 import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 import styles from "./ProductDetails.module.css";
@@ -10,6 +11,8 @@ function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const { addToCart } = useCart(); // Get addToCart function from Cart context
 
   useEffect(() => {
     axios
@@ -23,6 +26,10 @@ function ProductDetails() {
         setLoading(false);
       });
   }, [id]);
+
+  const handleAddToCart = () => {
+    addToCart(product);
+  };
 
   if (loading) {
     return (
@@ -55,7 +62,9 @@ function ProductDetails() {
           <CurrencyFormat amount={product.price} />
         </div>
 
-        <button className={styles.addToCart}>Add to Cart</button>
+        <button className={styles.addToCart} onClick={handleAddToCart}>
+          Add to Cart
+        </button>
       </div>
     </div>
   );

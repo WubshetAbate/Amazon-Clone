@@ -1,23 +1,9 @@
 import React from "react";
+import { useCart } from "../../Components/Product/CartContext"; // import your CartContext hook
 import styles from "./Cart.module.css";
 
 function Cart() {
-  const cartItems = [
-    {
-      id: 1,
-      title: "Wireless Mouse",
-      price: 25.99,
-      image: "https://m.media-amazon.com/images/I/61LtuGzXeaL._AC_SL1500_.jpg",
-      quantity: 2,
-    },
-    {
-      id: 2,
-      title: "Bluetooth Headphones",
-      price: 59.99,
-      image: "https://m.media-amazon.com/images/I/71o8Q5XJS5L._AC_SL1500_.jpg",
-      quantity: 1,
-    },
-  ];
+  const { cartItems, removeFromCart } = useCart(); // get items and remove function from context
 
   return (
     <section className={styles.cartWrapper}>
@@ -33,12 +19,17 @@ function Cart() {
               <div className={styles.info}>
                 <h3>{item.title}</h3>
                 <p>
-                  <strong>Price:</strong> ${item.price}
+                  <strong>Price:</strong> ${item.price.toFixed(2)}
                 </p>
                 <p>
                   <strong>Qty:</strong> {item.quantity}
                 </p>
-                <button className={styles.removeBtn}>Remove</button>
+                <button
+                  className={styles.removeBtn}
+                  onClick={() => removeFromCart(item)}
+                >
+                  Remove
+                </button>
               </div>
             </div>
           ))}

@@ -1,14 +1,19 @@
-*{
+* {
   margin: 0%;
   padding: 0%;
 }
-body{
+
+body {
   font-family: Arial, sans-serif;
 }
+
 .header {
   background-color: #131921;
   color: white;
   padding: 10px;
+  position: sticky;
+   top: 0;
+   z-index: 100;
 }
 
 .container {
@@ -44,8 +49,46 @@ body{
 .delivery p {
   margin: 0;
 }
+
 .icon {
-  font-size: 1.3rem; 
+  font-size: 1.3rem;
+}
+
+/* Cart Icon specific style */
+.cart .icon {
+  color: #ffd814; /* Amazon yellow */
+  position: relative;
+  font-size: 24px;
+}
+
+.cartCount {
+  position: absolute;
+  top: -8px;
+  right: -10px;
+  background-color: #f7ca00; /* bright yellow badge */
+  color: #111;
+  font-weight: bold;
+  font-size: 12px;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 0 1px 1px white;
+  pointer-events: none; /* so it doesn't block clicks */
+  z-index: 10;
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  position: relative;
+  padding-right: 18px;
 }
 
 .delivery span {
@@ -123,12 +166,4 @@ a:hover {
 
 .link span {
   font-weight: bold;
-}
-
-.cart {
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  font-weight: bold;
-  cursor: pointer;
 }

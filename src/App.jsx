@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
+import { CartProvider } from "./Components/Product/CartContext"; // import CartProvider
 import Landing from "./Pages/Landing/Landing";
 import SignIn from "./Pages/Auth/Signup";
 import Payment from "./Pages/Payment/Payment";
@@ -12,22 +13,27 @@ import ProductDetails from "./Components/Product/ProductDetails";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/auth" element={<SignIn />} />
-        <Route path="/payments" element={<Payment />} />
-        <Route path="/orders" element={<Orders />} />
-        <Route path="/cart" element={<Cart />} />
+    <CartProvider>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Landing />} />
+          <Route path="/auth" element={<SignIn />} />
+          <Route path="/payments" element={<Payment />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/cart" element={<Cart />} />
 
-        {/* Category routes */}
-        <Route path="/categories" element={<Category />} />
-        <Route path="/category/:categoryName" element={<CategoryProducts />} />
+          {/* Category routes */}
+          <Route path="/categories" element={<Category />} />
+          <Route
+            path="/category/:categoryName"
+            element={<CategoryProducts />}
+          />
 
-        {/* Product details route */}
-        <Route path="/product/:id" element={<ProductDetails />} />
-      </Routes>
-    </Router>
+          {/* Product details route */}
+          <Route path="/product/:id" element={<ProductDetails />} />
+        </Routes>
+      </Router>
+    </CartProvider>
   );
 }
 

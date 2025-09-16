@@ -2,11 +2,11 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProductCard from "./ProductCard";
 import styles from "./Product.module.css";
-import FadeLoader from "react-spinners/FadeLoader"; // 👈 import loader
+import FadeLoader from "react-spinners/FadeLoader"; // loader
 
 function Product() {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // 👈 loading state
+  const [loading, setLoading] = useState(true); // loading state
 
   useEffect(() => {
     axios
