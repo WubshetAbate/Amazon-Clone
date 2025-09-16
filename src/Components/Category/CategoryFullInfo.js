@@ -6,22 +6,22 @@ import img4 from "./ImgData/img4.png";
 export const categoryImage = [
   {
     title: "Electronics",
-    name: "electronics",
+    name: "electronics", // API expects lowercase "electronics"
     imgLink: img1,
   },
   {
     title: "Discover fashion trends",
-    name: "women's clothing",
+    name: "women's clothing", // must match API exactly
     imgLink: img2,
   },
   {
     title: "Men's Clothing",
-    name: "men's clothing",
+    name: "men's clothing", // must match API exactly
     imgLink: img3,
   },
   {
     title: "Jewelry",
-    name: "jewelry",
+    name: "jewelery", // API spelling is "jewelery"
     imgLink: img4,
   },
 ];

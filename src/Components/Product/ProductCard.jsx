@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import Rating from "@mui/material/Rating";
 import CurrencyFormat from "../CurrencyFormat/CurrencyFormat";
 import styles from "./ProductCard.module.css";
@@ -8,11 +9,13 @@ function ProductCard({ product }) {
 
   return (
     <div className={styles.productCard}>
-      <a href={`#product-${id}`}>
+      <Link to={`/product/${id}`}>
         <img className={styles.productImage} src={image} alt={title} />
-      </a>
+      </Link>
       <div className={styles.productInfo}>
-        <h3 className={styles.productTitle}>{title}</h3>
+        <h3 className={styles.productTitle}>
+          <Link to={`/product/${id}`}>{title}</Link>
+        </h3>
         <div className={styles.rating}>
           <Rating value={rating.rate} precision={0.1} readOnly />
           <small>({rating.count})</small>

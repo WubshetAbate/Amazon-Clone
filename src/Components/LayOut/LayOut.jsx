@@ -6,7 +6,7 @@ function LayOut({ children }) {
   return (
     <div>
       <Header />
-      <LowerHeader /> {/* 👈 Add this here */}
+      <LowerHeader />
       {children}
     </div>
   );

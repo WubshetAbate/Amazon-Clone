@@ -97,3 +97,9 @@ button {
 button:hover {
   background-color: #f7ca00;
 }
+.loaderWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh; /* Center loader vertically */
+}
